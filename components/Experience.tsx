@@ -12,40 +12,47 @@ export default function Experience() {
 
   const experiences = [
     {
-      title: "Software Engineer – Technology Innovations",
+      title: "Application Support",
       company: "Ecobank Nigeria",
-      period: "04.2024 – Present",
+      period: "10.2025 – Present",
       location: "Lagos, Nigeria",
       responsibilities: [
-        "CBN-compliant ATM inventory (Java/Spring Boot + MySQL) with real-time tracking + regulatory reporting.",
-        "NIBSS NRBVN integration (React/Next.js) for instant diaspora account opening; cross-sell landing for mortgages/investments.",
-        "NIBSS FAS integration for BVN/NIN validation and identity matching across branches (KYC at scale).",
-        "Card Distribution Tracking with automated email alerts and network-wide visibility (500+ branches).",
-        "Critical Action Buzzer escalation tool with categorized routing for faster HQ support.",
-        "Transaction-charges service with core banking integration; accurate debits & reduced manual errors.",
-        "Digitized LEA request handling with secure docs, compliance tracking, and audit trails.",
+        "Deliver frontline support for core banking applications, troubleshooting incidents, performing root-cause analysis, and driving timely escalations to maintain operational continuity.",
+        "Support release cycles by validating patches, verifying system integrity, and monitoring post-deployment performance to ensure stable, high-quality application behavior.",
+        "Streamline internal support processes through documentation, reporting, and proactive analysis of high-impact incidents.",
       ],
     },
     {
-      title: "Frontend Developer & IT Support (NYSC)",
-      company: "Rural Electrification Agency",
-      period: "01.2023 – 01.2024",
-      location: "Abuja, Nigeria",
+      title: "Software Development (React) Intern",
+      company: "Qucoon Academy",
+      period: "01.2025 – 04.2025",
+      location: "Lagos, Nigeria",
       responsibilities: [
-        "Mobile-first website redesign (HTML/CSS/JS) — accessibility scores up significantly.",
-        "Resolved the majority of IT tickets within 24-hour SLA for 100+ staff.",
-        "Prototyping (Figma/Angular) accelerated approvals by weeks; Agile/Jira workflow improvements.",
+        "Participated in a hands-on, project-based program simulating enterprise React development using Redux, and TypeScript.",
+        "Built and optimized UI components with reusable design patterns and robust state management.",
+        "Used Git and GitHub for collaborative version control, following best practices in branching and pull requests.",
       ],
     },
     {
-      title: "Network Engineer Intern",
-      company: "NNPC Limited",
-      period: "04.2021 – 10.2021",
-      location: "Abuja, Nigeria",
+      title: "Remote IT Support Specialist",
+      company: "VeeVee Tech Solutions",
+      period: "07.2023 – 12.2024",
+      location: "Texas, USA",
       responsibilities: [
-        "First-responder for incidents; high on-time resolution for 500+ users.",
-        "Cisco switching optimizations reduced latency; Wi-Fi reliability improved for 200+ employees.",
-        "Firewall rule hardening reduced security incidents.",
+        "Delivered tier-1 and tier-2 technical support, resolving end-user issues related to hardware, software and network connectivity.",
+        "Reduced system downtime by 15% through proactive maintenance and database management.",
+        "Supported and monitored 30+remote workstations and network devices to maintain operational efficiency.",
+      ],
+    },
+    {
+      title: "Front-End Engineer Intern",
+      company: "Ecobank Nigeria",
+      period: "01.2023 – 06.2023",
+      location: "Lagos, Nigeria",
+      responsibilities: [
+        "Web Development: Contributed to website features development using HTML, CSS, JavaScript, and ReactJS.",
+        "Worked with senior developers to optimize website performance, ensuring a responsive user experience.",
+        "Utilized Git and GitHub for version control, streamlining collaboration within the development team. ",
       ],
     },
   ];
@@ -54,40 +61,40 @@ export default function Experience() {
   const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
   return (
-    <section id="experience" className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
-        <div className="text-center mb-12">
+    <section id="experience" className="py-16 sm:py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8" ref={ref}>
+        <div className="text-center mb-8 sm:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold mb-4">Professional Experience</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Professional Experience</h2>
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Front-End delivery across banking and public sector work.
             </p>
           </motion.div>
         </div>
 
         <motion.div variants={container} initial="hidden" animate={isInView ? "show" : "hidden"}>
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {experiences.map((exp, index) => (
               <motion.div key={`${exp.title}-${index}`} variants={item}>
                 <Card className="overflow-hidden border-l-4 border-l-primary">
-                <CardHeader className="pb-2">
+                <CardHeader className="pb-2 px-3 sm:px-6 py-3 sm:py-4">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                     <div>
-                      <CardTitle className="text-xl">{exp.title}</CardTitle>
-                      <p className="text-primary font-medium">{exp.company}</p>
+                      <CardTitle className="text-lg sm:text-xl">{exp.title}</CardTitle>
+                      <p className="text-sm sm:text-base text-primary font-medium">{exp.company}</p>
                     </div>
-                    <div className="flex flex-col sm:items-end">
-                      <Badge variant="outline" className="mb-1 sm:ml-auto w-fit">{exp.period}</Badge>
-                      <span className="text-sm text-muted-foreground">{exp.location}</span>
+                    <div className="flex flex-col sm:items-end gap-1">
+                      <Badge variant="outline" className="text-xs sm:text-sm w-fit">{exp.period}</Badge>
+                      <span className="text-xs sm:text-sm text-muted-foreground">{exp.location}</span>
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+                <CardContent className="px-3 sm:px-6 py-3 sm:py-4">
+                  <ul className="list-disc pl-4 sm:pl-5 space-y-1 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
                     {exp.responsibilities.map((resp, i) => <li key={i}>{resp}</li>)}
                   </ul>
                 </CardContent>

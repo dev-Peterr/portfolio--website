@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import { Moon, Sun, Menu, X, Home } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
+import type { MotionProps } from "framer-motion"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -29,17 +30,17 @@ export default function Header() {
   ]
 
   return (
-    <motion.header
-      className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
+    <motion.div
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border overflow-hidden">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-3 py-3 sm:px-4 sm:py-4 lg:px-8" aria-label="Global">
+        <div className="flex lg:flex-1 min-w-0">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Brambifa Peter Son-of-God</span>
-            <span className="text-xl font-bold">Pierre</span>
+            <span className="text-lg sm:text-xl font-bold truncate">Pierre</span>
           </Link>
         </div>
 
@@ -60,12 +61,12 @@ export default function Header() {
 
         {/* Desktop navigation - only show nav links on home page */}
         {!isProjectsPage && (
-          <div className="hidden lg:flex lg:gap-x-8">
+          <div className="hidden lg:flex lg:gap-x-4 xl:gap-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                className="text-xs xl:text-sm font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap"
               >
                 {item.name}
               </Link>
@@ -80,22 +81,22 @@ export default function Header() {
               href="/"
               className="text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center"
             >
-              <Home className="h-4 w-4 mr-1" /> Home
+              <Home className="h-4 w-4 mr-1"/> Home
             </Link>
           </div>
         )}
 
         {/* Right side (desktop) */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 xl:gap-2">
             {/* Resume button (desktop) */}
-            <Button asChild>
+            <Button asChild size="sm" className="text-xs xl:text-sm px-2 xl:px-4">
               <Link
                 href="\BRAMBIFA-PETER-RESUMEpdf.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Resume
+                Résumé
               </Link>
             </Button>
 
@@ -103,10 +104,11 @@ export default function Header() {
               <Button
                 variant="ghost"
                 size="icon"
+                className="h-8 w-8 xl:h-10 xl:w-10"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 aria-label="Toggle theme"
               >
-                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                {theme === "dark" ? <Sun className="h-4 w-4 xl:h-5 xl:w-5" /> : <Moon className="h-4 w-4 xl:h-5 xl:w-5" />}
               </Button>
             )}
           </div>
@@ -116,18 +118,17 @@ export default function Header() {
       {/* Mobile menu - only render on home page */}
       {!isProjectsPage && isMenuOpen && (
         <motion.div
-          className="lg:hidden"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="space-y-1 px-4 pb-4 pt-2">
+          <div className="lg:hidden space-y-1 px-3 pb-3 pt-2 sm:px-4 sm:pb-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-base font-medium text-foreground hover:text-primary transition-colors"
+                className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -139,7 +140,7 @@ export default function Header() {
               href="\BRAMBIFA-PETER-RESUMEpdf.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="block py-2 text-base font-medium text-foreground hover:text-primary transition-colors"
+              className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Resume (PDF)
@@ -148,7 +149,8 @@ export default function Header() {
             {mounted && (
               <Button
                 variant="ghost"
-                className="w-full justify-start"
+                size="sm"
+                className="w-full justify-start text-sm"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
                 {theme === "dark" ? (
@@ -165,6 +167,7 @@ export default function Header() {
           </div>
         </motion.div>
       )}
-    </motion.header>
+      </header>
+    </motion.div>
   )
 }

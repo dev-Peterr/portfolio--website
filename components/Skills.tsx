@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { useRef, type RefObject } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Code, Database, Server, Layout, MessageSquare, Lightbulb, Eye, Brain, CheckCircle } from "lucide-react"
 
 export default function Skills() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const ref = useRef<HTMLDivElement | null>(null)
+  const isInView = useInView(ref as unknown as RefObject<Element>, { once: true, amount: 0.2 })
 
   const frontendSkills = [
     { name: "Next.js", icon: <Layout className="h-5 w-5" /> },
@@ -41,107 +41,114 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 bg-secondary/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+    <section id="skills" className="py-16 sm:py-20 bg-secondary/10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Skills</h2>
-          <p className="text-lg text-muted-foreground">
-            A showcase of my technical and soft skills that drive my success as a software engineer.
-          </p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Skills</h2>
+            <p className="text-sm sm:text-lg text-muted-foreground">
+              A showcase of my technical and soft skills that drive my success as a software engineer.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-10">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
+          <div className="space-y-8 sm:space-y-10">
             <div>
-              <motion.h3
-                className="text-xl font-semibold mb-6 text-center md:text-left"
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Frontend Technologies
-              </motion.h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-center md:text-left">
+                  Frontend Technologies
+                </h3>
+              </motion.div>
 
               <motion.div
-                className="grid grid-cols-2 gap-4"
                 variants={container}
                 initial="hidden"
                 animate={isInView ? "show" : "hidden"}
               >
-                {frontendSkills.map((skill) => (
-                  <motion.div key={skill.name} variants={item}>
-                    <Card className="hover:border-primary/50 transition-colors">
-                      <CardContent className="p-4 flex items-center space-x-3">
-                        <div className="text-primary">{skill.icon}</div>
-                        <span className="font-medium">{skill.name}</span>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  {frontendSkills.map((skill) => (
+                    <motion.div key={skill.name} variants={item}>
+                      <Card className="hover:border-primary/50 transition-colors">
+                        <CardContent className="p-3 sm:p-4 flex items-center space-x-2 sm:space-x-3">
+                          <div className="text-primary text-4 sm:h-5 sm:w-5">{skill.icon}</div>
+                          <span className="font-medium text-sm sm:text-base">{skill.name}</span>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             </div>
 
             <div>
-              <motion.h3
-                className="text-xl font-semibold mb-6 text-center md:text-left"
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Backend Technologies
-              </motion.h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-center md:text-left">
+                  Backend Technologies
+                </h3>
+              </motion.div>
 
               <motion.div
-                className="grid grid-cols-2 gap-4"
                 variants={container}
                 initial="hidden"
                 animate={isInView ? "show" : "hidden"}
               >
-                {backendSkills.map((skill) => (
-                  <motion.div key={skill.name} variants={item}>
-                    <Card className="hover:border-primary/50 transition-colors">
-                      <CardContent className="p-4 flex items-center space-x-3">
-                        <div className="text-primary">{skill.icon}</div>
-                        <span className="font-medium">{skill.name}</span>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  {backendSkills.map((skill) => (
+                    <motion.div key={skill.name} variants={item}>
+                      <Card className="hover:border-primary/50 transition-colors">
+                        <CardContent className="p-3 sm:p-4 flex items-center space-x-2 sm:space-x-3">
+                          <div className="text-primary">{skill.icon}</div>
+                          <span className="font-medium text-sm sm:text-base">{skill.name}</span>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             </div>
           </div>
 
           <div>
-            <motion.h3
-              className="text-xl font-semibold mb-6 text-center md:text-left"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Soft Skills
-            </motion.h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-center md:text-left">
+                Soft Skills
+              </h3>
+            </motion.div>
 
             <motion.div
-              className="grid grid-cols-2 gap-4"
               variants={container}
               initial="hidden"
               animate={isInView ? "show" : "hidden"}
             >
-              {softSkills.map((skill) => (
-                <motion.div key={skill.name} variants={item}>
-                  <Card className="hover:border-primary/50 transition-colors">
-                    <CardContent className="p-4 flex items-center space-x-3">
-                      <div className="text-primary">{skill.icon}</div>
-                      <span className="font-medium">{skill.name}</span>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                {softSkills.map((skill) => (
+                  <motion.div key={skill.name} variants={item}>
+                    <Card className="hover:border-primary/50 transition-colors">
+                      <CardContent className="p-3 sm:p-4 flex items-center space-x-2 sm:space-x-3">
+                        <div className="text-primary">{skill.icon}</div>
+                        <span className="font-medium text-sm sm:text-base">{skill.name}</span>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>

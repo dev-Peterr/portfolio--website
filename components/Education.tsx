@@ -2,24 +2,24 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { useRef, type RefObject } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { GraduationCap, Award, Users } from "lucide-react"
 
 export default function Education() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const ref = useRef<HTMLDivElement | null>(null)
+  const isInView = useInView(ref as unknown as RefObject<Element>, { once: true, amount: 0.2 })
 
   const education = [
     {
       institution: "Babcock University",
       degree: "B.Sc. Computer Engineering",
-      location: "Ilisan-Remo, Ogun State, Nigeria",
+      location: "Ilisan-Remo, Ogun State, Nigeria.",
       details: [
         { icon: <GraduationCap className="h-4 w-4" />, text: "Major in Computer Science" },
-        { icon: <Award className="h-4 w-4" />, text: "Relevant Coursework: OOP, Applied Programming, Programming Methodology" },
+        { icon: <Award className="h-4 w-4" />, text: "Relevant Coursework: OOP, Algorithm & Data Structures, Programming Methodology" },
         { icon: <Users className="h-4 w-4" />, text: "Member of the BUCC (Babcock University Computer Club) Developer Community" },
-        { icon: <Users className="h-4 w-4" />, text: "Active member of theChurch Choir(musicain) and Basketball team" },
+        { icon: <Users className="h-4 w-4" />, text: "Active member of the Church Choir (musicain) and Basketball team" },
       ],
     }
   ]
@@ -35,46 +35,49 @@ export default function Education() {
   }
 
   return (
-    <section id="education" className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+    <section id="education" className="py-16 sm:py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Education</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">My academic background and qualifications.</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Education</h2>
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">My academic background and qualifications.</p>
+          </div>
         </motion.div>
 
-        <motion.div className="space-y-8 max-w-3xl mx-auto" variants={container} initial="hidden" animate={isInView ? "show" : "hidden"}>
-          {education.map((edu) => (
-            <motion.div key={edu.institution} variants={item}>
-              <Card>
-                <CardHeader>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-                    <div>
-                      <CardTitle className="text-xl">{edu.institution}</CardTitle>
-                      <p className="text-primary font-medium">{edu.degree}</p>
+        <motion.div variants={container} initial="hidden" animate={isInView ? "show" : "hidden"}>
+          <div className="space-y-6 sm:space-y-8 max-w-3xl mx-auto">
+            {education.map((edu) => (
+              <motion.div key={edu.institution} variants={item}>
+                <Card>
+                  <CardHeader className="px-3 sm:px-6 py-3 sm:py-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                      <div>
+                        <CardTitle className="text-lg sm:text-xl">{edu.institution}</CardTitle>
+                        <p className="text-sm sm:text-base text-primary font-medium">{edu.degree}</p>
+                      </div>
+                      <div className="text-left sm:text-right">
+                        <p className="text-xs sm:text-sm text-muted-foreground">{edu.location}</p>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm text-muted-foreground">{edu.location}</p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {edu.details.map((detail, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1 text-primary">{detail.icon}</span>
-                        <span className="text-muted-foreground">{detail.text}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                  </CardHeader>
+                  <CardContent className="px-3 sm:px-6 py-3 sm:py-4">
+                    <ul className="space-y-2">
+                      {edu.details.map((detail, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="mt-1 text-primary flex-shrink-0">{detail.icon}</span>
+                          <span className="text-xs sm:text-sm text-muted-foreground">{detail.text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

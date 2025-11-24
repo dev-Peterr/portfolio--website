@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, type RefObject } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,8 +22,8 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref as unknown as RefObject<Element>, { once: true, amount: 0.2 });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -50,58 +50,59 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-secondary/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+    <section id="contact" className="py-16 sm:py-20 bg-secondary/10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to discuss opportunities? I’d love to hear from you.
-          </p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Get In Touch</h2>
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid gap-8">
+        <div className="grid gap-6 sm:gap-8">
           {/* Contact form kept commented for now */}
           <motion.div initial={{ opacity: 0, x: 50 }} animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }} transition={{ duration: 0.8, delay: 0.4 }}>
             <Card className="h-full">
-              <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
-                <CardDescription>Reach out through any of these channels.</CardDescription>
+              <CardHeader className="px-3 sm:px-6 py-3 sm:py-4">
+                <CardTitle className="text-lg sm:text-xl">Contact Information</CardTitle>
+                <CardDescription className="text-xs sm:text-sm">Reach out through any of these channels.</CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-6">
+              <CardContent className="px-3 sm:px-6 py-3 sm:py-4">
+                <ul className="space-y-4 sm:space-y-6">
                   {contactInfo.map((info, index) => (
-                    <li key={index} className="flex items-start">
-                      <div className="mr-4 text-primary">{info.icon}</div>
-                      <div>
-                        <p className="font-medium">{info.label}</p>
+                    <li key={index} className="flex items-start gap-2 sm:gap-4">
+                      <div className="text-primary flex-shrink-0 mt-1">{info.icon}</div>
+                      <div className="min-w-0">
+                        <p className="font-medium text-sm sm:text-base">{info.label}</p>
                         {info.link ? (
                           <Link
                             href={info.link}
                             target={info.link.startsWith("http") ? "_blank" : undefined}
                             rel={info.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className="text-muted-foreground hover:text-primary transition-colors"
+                            className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors break-all"
                           >
                             {info.value}
                           </Link>
                         ) : (
-                          <p className="text-muted-foreground">{info.value}</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground">{info.value}</p>
                         )}
                       </div>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-8">
-                  <h3 className="font-medium mb-4">Available for:</h3>
+                <div className="mt-6 sm:mt-8">
+                  <h3 className="font-medium text-sm sm:text-base mb-3 sm:mb-4">Available for:</h3>
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Full-time</span>
-                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Contract</span>
-                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Freelance</span>
+                    <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">Full-time</span>
+                    <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">Contract</span>
+                    <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">Freelance</span>
                   </div>
                 </div>
               </CardContent>

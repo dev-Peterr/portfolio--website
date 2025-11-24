@@ -309,7 +309,7 @@ export default function ProjectsPage() {
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
           </Link>
-          <h1 className="text-4xl font-bold mb-4">Personal Projects & PoCs</h1>
+          <h1 className="text-4xl font-bold mb-4">Personal Projects</h1>
           <p className="text-lg text-muted-foreground max-w-3xl">
             Significant, demo-able work. Long descriptions below give context;
             buttons link to live apps, repos, and API docs.

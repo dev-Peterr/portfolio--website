@@ -111,7 +111,7 @@ export default function Hero() {
                   Based in Lagos, Nigeria
                 </p>
                 <p className="text-muted-foreground mt-2">
-                  Transforming ideas into elegant solutions
+                  Transforming ideas into elegant solutions.
                 </p>
               </div>
             </div>
