@@ -5,24 +5,25 @@ import { useInView } from "framer-motion"
 import { useRef, type RefObject } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { GraduationCap, Award, Users } from "lucide-react"
+import { educationData } from "@/lib/constants"
+
+const iconMap = {
+  GraduationCap: <GraduationCap className="h-4 w-4" />,
+  Award: <Award className="h-4 w-4" />,
+  Users: <Users className="h-4 w-4" />,
+}
 
 export default function Education() {
   const ref = useRef<HTMLDivElement | null>(null)
   const isInView = useInView(ref as unknown as RefObject<Element>, { once: true, amount: 0.2 })
 
-  const education = [
-    {
-      institution: "Babcock University",
-      degree: "B.Sc. Computer Engineering",
-      location: "Ilisan-Remo, Ogun State, Nigeria.",
-      details: [
-        { icon: <GraduationCap className="h-4 w-4" />, text: "Major in Computer Science" },
-        { icon: <Award className="h-4 w-4" />, text: "Relevant Coursework: OOP, Algorithm & Data Structures, Programming Methodology" },
-        { icon: <Users className="h-4 w-4" />, text: "Member of the BUCC (Babcock University Computer Club) Developer Community" },
-        { icon: <Users className="h-4 w-4" />, text: "Active member of the Church Choir (musicain) and Basketball team" },
-      ],
-    }
-  ]
+  const education = educationData.map((edu) => ({
+    ...edu,
+    details: edu.details.map((detail) => ({
+      ...detail,
+      icon: iconMap[detail.icon as keyof typeof iconMap],
+    })),
+  }))
 
   const container = {
     hidden: { opacity: 0 },
