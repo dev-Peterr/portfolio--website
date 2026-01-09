@@ -29,7 +29,7 @@ export default function Hero() {
                   className="rounded-full w-36 h-36 sm:w-40 sm:h-40 lg:w-60 lg:h-60 object-cover mx-auto shadow-lg border-4 border-primary/20"
                 />
                 <p className="text-xl font-semibold text-foreground">
-                  Based in Lagos, Nigeria
+                  Based in Indiana, USA
                 </p>
                 <p className="text-muted-foreground mt-2">
                   Transforming ideas into elegant solutions.

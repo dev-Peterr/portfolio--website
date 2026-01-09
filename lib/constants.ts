@@ -63,7 +63,7 @@ export const experiences = [
   {
     title: "Application Support",
     company: "Ecobank Nigeria",
-    period: "10.2025 – Present",
+    period: "10.2025 – 12.2025",
     location: "Lagos, Nigeria",
     responsibilities: [
       "Deliver frontline support for core banking applications, troubleshooting incidents, performing root-cause analysis, and driving timely escalations to maintain operational continuity.",

@@ -42,9 +42,9 @@ export default function Contact() {
   }
 
   const contactInfo = [
-    { icon: <MapPin className="h-5 w-5" />, label: "Location", value: "Lagos, Nigeria", link: null },
+    { icon: <MapPin className="h-5 w-5" />, label: "Location", value: "Fort Wayne, Indiana, USA", link: null },
     { icon: <Mail className="h-5 w-5" />, label: "Email", value: "brambifapeterjr@gmail.com", link: "mailto:brambifapeterjr@gmail.com" },
-    { icon: <Phone className="h-5 w-5" />, label: "Phone", value: "+234 913 804 9948", link: "tel:+2349138049948" },
+    { icon: <Phone className="h-5 w-5" />, label: "Phone", value: "+1(260)3486844", link: "tel:+1(260)3486844" },
     { icon: <Linkedin className="h-5 w-5" />, label: "LinkedIn", value: "petersog-brambifa", link: "https://www.linkedin.com/in/petersog-brambifa/" },
     { icon: <Github className="h-5 w-5" />, label: "GitHub", value: "dev-Peterr", link: "https://github.com/dev-Peterr/" },
   ];
