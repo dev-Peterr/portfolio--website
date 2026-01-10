@@ -13,7 +13,7 @@ export default function Footer() {
 
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
           <Link
-            href="\BRAMBIFA-PETER-RESUMEpdf.pdf"
+            href="\BrambifaPeter-IT-resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"

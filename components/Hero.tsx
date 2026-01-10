@@ -77,7 +77,7 @@ export default function Hero() {
             {/* Résumé CTA */}
             <Button variant="ghost" asChild size="sm" className="text-xs sm:text-sm whitespace-nowrap flex-shrink-0">
               <Link
-                href="\BRAMBIFA-PETER-RESUMEpdf.pdf"
+                href="\BrambifaPeter-IT-resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >

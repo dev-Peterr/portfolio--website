@@ -92,7 +92,7 @@ export default function Header() {
             {/* Resume button (desktop) */}
             <Button asChild size="sm" className="text-xs xl:text-sm px-2 xl:px-4">
               <Link
-                href="\BRAMBIFA-PETER-RESUMEpdf.pdf"
+                href="\BrambifaPeter-IT-resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
