@@ -39,7 +39,7 @@ export default function Header() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-3 py-3 sm:px-4 sm:py-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1 min-w-0">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Brambifa Peter Son-of-God</span>
+            <span className="sr-only">Peter S. Brambifa</span>
             <span className="text-lg sm:text-xl font-bold truncate">Pierre</span>
           </Link>
         </div>

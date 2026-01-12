@@ -46,7 +46,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Brambifa Peter Son-of-God
+              Peter S. Brambifa
             </h1>
             <h2 className="mt-2 text-2xl font-semibold text-primary">
               Software Engineer

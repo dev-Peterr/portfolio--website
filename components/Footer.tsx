@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="border-t border-border">
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col items-center gap-4 text-center sm:text-left sm:flex-row sm:justify-between sm:items-start">
         <p className="text-xs sm:text-sm text-muted-foreground">
-          © {year} Brambifa Peter Son-of-God. All rights reserved.
+          © {year} Peter S. Brambifa. All rights reserved.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
