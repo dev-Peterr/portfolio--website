@@ -139,7 +139,27 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Tailwind"],
     links: [
       { label: "Live", href: "https://cysec-con.vercel.app/", kind: "live" },
-      { label: "Code", href: "https://github.com/Senibo-Don-Pedro/e-commerce-frontend", kind: "code" },
+      { label: "Code", href: "https://github.com/dev-Peterr/portfolio--website", kind: "code" },
+    ],
+  },
+  {
+    title: "To-do List App",
+    description:
+      "Full-stack Todo List app: Next.js + TypeScript frontend, Tailwind CSS styling, Supabase backend with auth, real-time tasks, and responsive interactive UI.",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Supabase"],
+    links: [
+      { label: "Live", href: "https://your-tasklist.vercel.app/", kind: "live" },
+      { label: "Code", href: "https://github.com/dev-Peterr/todolist-app", kind: "code" },
+    ],
+  },
+  {
+    title: "Tuffrik Online Store",
+    description:
+      "Headless e-commerce storefront built with Next.js and Tailwind CSS, leveraging Shopify for backend commerce and checkout.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Shopify API", "E-commerce"],
+    links: [
+      { label: "Live", href: "https://tuffrik.vercel.app/", kind: "live" },
+      { label: "Code", href: "https://github.com/michealslife01/tuffrik", kind: "code" },
     ],
   },
 ] as const;
