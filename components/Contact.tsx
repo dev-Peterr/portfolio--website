@@ -42,7 +42,7 @@ export default function Contact() {
   }
 
   const contactInfo = [
-    { icon: <MapPin className="h-5 w-5" />, label: "Location", value: "Fort Wayne, Indiana, USA", link: null },
+    { icon: <MapPin className="h-5 w-5" />, label: "Location", value: "Indiana, USA", link: null },
     { icon: <Mail className="h-5 w-5" />, label: "Email", value: "brambifapeterjr@gmail.com", link: "mailto:brambifapeterjr@gmail.com" },
     { icon: <Phone className="h-5 w-5" />, label: "Phone", value: "+1(260)348-6844", link: "tel:+1(260)348-6844" },
     { icon: <Linkedin className="h-5 w-5" />, label: "LinkedIn", value: "petersog-brambifa", link: "https://www.linkedin.com/in/petersog-brambifa/" },
@@ -101,6 +101,7 @@ export default function Contact() {
                   <h3 className="font-medium text-sm sm:text-base mb-3 sm:mb-4">Available for:</h3>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">Full-time</span>
+                    <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">Remote</span>
                     <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">Contract</span>
                     <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">Freelance</span>
                   </div>

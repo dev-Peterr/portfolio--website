@@ -162,4 +162,14 @@ export const projects: Project[] = [
       { label: "Code", href: "https://github.com/michealslife01/tuffrik", kind: "code" },
     ],
   },
+  {
+    title: "Tuffrik Online Store",
+    description:
+      "Headless e-commerce storefront built with Next.js and Tailwind CSS, leveraging Shopify for backend commerce and checkout.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Shopify API", "E-commerce"],
+    links: [
+      { label: "Live", href: "https://tuffrik.vercel.app/", kind: "live" },
+      { label: "Code", href: "https://github.com/michealslife01/tuffrik", kind: "code" },
+    ],
+  },
 ] as const;
