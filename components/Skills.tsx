@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, type RefObject } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Code, Database, Server, Layout, MessageSquare, Lightbulb, Eye, Brain, CheckCircle } from "lucide-react"
+import { Braces, Code, Database, Server, Layout, Wand,  MessageSquare, Lightbulb, Eye, Brain, CheckCircle } from "lucide-react"
 
 export default function Skills() {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -12,9 +12,9 @@ export default function Skills() {
 
   const frontendSkills = [
     { name: "Next.js", icon: <Layout className="h-5 w-5" /> },
-    { name: "React.js", icon: <Layout className="h-5 w-5" /> },
+    { name: "React.js", icon: <Braces className="h-5 w-5" /> },
     { name: "TypeScript", icon: <Code className="h-5 w-5" /> },
-    { name: "Tailwind CSS", icon: <Layout className="h-5 w-5" /> },
+    { name: "Tailwind CSS", icon: <Wand className="h-5 w-5" /> },
   ]
 
   const backendSkills = [

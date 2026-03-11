@@ -66,9 +66,9 @@ export const experiences = [
     period: "10.2025 – 12.2025",
     location: "Lagos, Nigeria",
     responsibilities: [
-      "Deliver frontline support for core banking applications, troubleshooting incidents, performing root-cause analysis, and driving timely escalations to maintain operational continuity.",
-      "Support release cycles by validating patches, verifying system integrity, and monitoring post-deployment performance to ensure stable, high-quality application behavior.",
-      "Streamline internal support processes through documentation, reporting, and proactive analysis of high-impact incidents.",
+      "Diagnosed and resolved customer- and internal-facing technical issues, achieving 100% SLA compliance.",
+      "Performed root cause analysis on complex incidents, escalating appropriately to senior teams and vendors.",
+      "Supported Oracle Flexcube workflows, resolving system issues and assisting with application maintenance.",
     ],
   },
   {
@@ -83,24 +83,12 @@ export const experiences = [
     ],
   },
   {
-    title: "Remote IT Support Specialist",
-    company: "VeeVee Tech Solutions",
-    period: "07.2023 – 12.2024",
-    location: "Texas, USA",
-    responsibilities: [
-      "Delivered tier-1 and tier-2 technical support, resolving end-user issues related to hardware, software and network connectivity.",
-      "Reduced system downtime by 15% through proactive maintenance and database management.",
-      "Supported and monitored 30+remote workstations and network devices to maintain operational efficiency.",
-    ],
-  },
-  {
     title: "Front-End Engineer Intern",
     company: "Ecobank Nigeria",
     period: "01.2023 – 06.2023",
     location: "Lagos, Nigeria",
     responsibilities: [
-      "Web Development: Contributed to website features development using HTML, CSS, JavaScript, and ReactJS.",
-      "Worked with senior developers to optimize website performance, ensuring a responsive user experience.",
+      "Developed website features with HTML, CSS, JavaScript, and ReactJS, collaborating with senior developers to optimize performance and responsiveness.",
       "Utilized Git and GitHub for version control, streamlining collaboration within the development team. ",
     ],
   },
